@@ -86,7 +86,7 @@ def get_undertaking_family_html(name, array):
 
     <h3 style="margin-top: 30px; font-size: 20px;">UNDERTAKING</h3>
 
-    <p class="text-li">I am {name}, Proprietor of park view confectionary. My family’s passport details are as follows:</p>
+    <p class="text-li">I am {name}. My family’s passport details are as follows:</p>
 
       <table >
         <tr>
