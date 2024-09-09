@@ -11,13 +11,15 @@ from src.images import signature, stamp
 current_directory = os.path.dirname(os.path.abspath(__file__))
 
 
-def get_visa_html(name: str, passport: str, purpose: str):
+def get_visa_html(name: str, passport: str, purpose: str, guest_country: str):
+   
     passport_number_gap = "26px"
 
     name_number_width = (
         f"{155 - ((len(name) * 4.8) - (len(re.findall(r' ', name)) * 3) )}px"
     )
     passport_number_width = f"{150 - (len(passport) * 4.8)}px"
+    country_width = f"{115 - (len(guest_country) * 4.7)}px"
 
     purpose_number_width = (
         f"{140 - ((len(purpose) * 4.2) - (len(re.findall(r' ', purpose)) * 3))}px"
@@ -129,9 +131,9 @@ def get_visa_html(name: str, passport: str, purpose: str):
       </h4>
 
       <p class="description">The applicant for the visa, {add_space_underlined(str.upper(name), name_number_width)} ( name of applicant ) of 
-      <br> {add_space_underlined("BANGLADESH", "92px")} ( country/place ), holder of passport/travel document no.
+      <br> {add_space_underlined(guest_country.upper(), country_width)} ( country/place ), holder of passport/travel document no.
       <br> {add_space_underlined(str.upper(passport),  passport_number_width)} {get_space(passport_number_gap)} is {get_space(passport_number_gap)} coming {get_space(passport_number_gap)} to {get_space(passport_number_gap)} Singapore {get_space(passport_number_gap)} from 
-      <br> {add_space_underlined("BANGLADESH", "100px")} {get_space("5px")} ( country/place of embarkation ) {get_space("5px")} for the purpose of 
+      <br> {  add_space_underlined(guest_country.upper(), country_width)} {get_space("3px")} ( country/place of embarkation ) {get_space("5px")} for the purpose of 
       <br> {add_space_underlined(str.upper(purpose), purpose_number_width)} ( e.g., holiday, transit, business, meeting, exhibition, visiting {get_space("9px")} friends {get_space("9px")} & {get_space("9px")} relatives, {get_space("9px")} employment, {get_space("9px")} education {get_space("9px")} for {get_space("9px")} others, {get_space("9px")} please {get_space("9px")} specify ). {get_space("9px")} The 
       <br> applicant is my {add_space_underlined("CLIENT", "110px")} ( e.g., father, mother, brother, sister, son, daughter, spouse, business partner; for others, please specify ). </p>
 
@@ -226,9 +228,9 @@ def get_visa_file_name(code):
     return f"{code}-visa-application.pdf"
 
 
-def generate_visa_pdf(name, passport, purpose, code="unknown"):
+def generate_visa_pdf(name, passport, purpose, code="unknown", guest_country="Bangladesh"):
     convert_html_to_pdf(
-        get_visa_html(name, passport, purpose),
+        get_visa_html(name, passport, purpose, guest_country.upper()),
         os.path.normpath(
             os.path.join(current_directory, "../generated", get_visa_file_name(code))
         ),

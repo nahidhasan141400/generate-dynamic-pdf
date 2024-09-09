@@ -36,8 +36,9 @@ visa_schema = {
         "name": {"type": "string"},
         "passport": {"type": "string"},
         "purpose": {"type": "string"},
+        "guest_country": {"type": "string"},
     },
-    "required": ["name", "passport", "purpose"],
+    "required": ["name", "passport", "purpose","guest_country"],
 }
 
 undertaking_single_schema = {
