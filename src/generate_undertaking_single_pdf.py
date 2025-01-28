@@ -68,7 +68,7 @@ def get_undertaking_single_html(name):
         </p>
         <p class="text-li" style="padding: 0 0 0 20px; margin: 5px;">
          <span style="font-family: monospace; font-weight: 600;">ii.</span>
-            I am aware that the visa application processing time at the Consulate of the Republic of Singapore,
+            I am aware that the visa application processing time at the High Commission of the Republic of Singapore,
              Dhaka is minimum 5 (five) working days and more (Excluding Submission Date).
         </p>
         <p class="text-li" style="padding: 0 0 0 20px; margin: 5px;">

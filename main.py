@@ -48,7 +48,7 @@ def generate_visa_pdf_route():
 
         try:
             content = get_visa_html(
-                data.get("name"), data.get("passport"), data.get("purpose"), data.get("guest_country")
+                data.get("name"), data.get("passport"), data.get("purpose"), data.get("guest_country"),data.get("travel_from")
             )
             pisa.CreatePDF(content, dest=pdf_buffer)
             pdf_buffer.seek(0)
@@ -367,7 +367,7 @@ def test():
         },
     )
 
-    generate_visa_pdf("HelloLUEHUIG", "A3485G45", "visiting","NAhid","Nel")
+    generate_visa_pdf("Nahid", "A3485G45", "visiting","nahid","Bangladesh","Switzerland")
 
     generate_undertaking_single_pdf("Nirob")
     generate_undertaking_family_pdf(

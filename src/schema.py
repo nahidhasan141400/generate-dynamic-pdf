@@ -37,6 +37,7 @@ visa_schema = {
         "passport": {"type": "string"},
         "purpose": {"type": "string"},
         "guest_country": {"type": "string"},
+        "travel_from": {"type": "string"},
     },
     "required": ["name", "passport", "purpose","guest_country"],
 }
